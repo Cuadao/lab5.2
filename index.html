@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.materialdesignicons.com/4.0.96/css/materialdesignicons.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+   </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="list-group" id="leftside">
+            <a href="#" class="list-group-item list-group-item-action">
+              <i class="mdi mdi-home"></i>
+              Home
+            </a>
+            <a
+              href="https://twitter.com/explore"
+              class="list-group-item list-group-item-action"
+            >
+              <i class="mdi mdi-pound"></i>
+              Explore
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <i class="mdi mdi-bell-outline"></i>&nbsp;Notifications&nbsp;<span
+                class="badge badge-pill badge-primary"
+                >2</span
+              >
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <i class="mdi mdi-email-outline"></i>&nbsp;Messages
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <i class="mdi mdi-bookmark-outline"></i>&nbsp;Bookmarks
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <i class="mdi mdi-format-list-bulleted"></i>&nbsp;Lists
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <img
+                style="height: 20px; border-radius: 50%"
+                src="https://placem.at/places?w=50&h=50&txt="
+                alt=""
+              />&nbsp;Profile
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <i class="mdi mdi-dots-horizontal-circle"></i>&nbsp;More
+            </a>
+          </div>
+        </div>
+        <div class="col-6">
+          <!-- <form> -->
+          <div class="form-group">
+            <h5>Home</h5>
+            <hr />
+            <div class="fb">
+              <img
+                id="avatar"
+                src="https://placem.at/places?w=50&h=50&txt="
+                alt=""
+              />
+              <textarea
+                placeholder="What's happening?"
+                class="form-control"
+                id="tweetarea"
+                rows="1"
+              ></textarea>
+            </div>
+            <div class="row">
+              <div class="col"></div>
+              <div class="imgGifPoll col"></div>
+              <div class="col"></div>
+            </div>
+            <div class="fb">
+              <section>
+                <div id="inserts" class="btn-group mr-2">
+                  <button
+                    type="button"
+                    class="btn btn-secondary mdi mdi-image-outline"
+                    aria-label="Insert image"
+                  ></button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary mdi mdi-gif"
+                    aria-label="Insert gif"
+                    data-toggle="modal"
+                    data-target="#modalgifs"
+                  ></button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary mdi mdi-poll"
+                    aria-label="Insert Poll"
+                    <!--style=""-->
+                  </button>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary mdi mdi-emoticon-happy-outline"
+                    aria-label="Insert emoji"
+                    data-toggle="modal"
+                    data-target="#emojimodal"
+                  ></button>
+
+                  <button
+                    type="button"
+                    class="btn btn-secondary mdi mdi-calendar-clock"
+                    aria-label="Insert scheduled tweet"
+                  ></button>
+                </div>
+              </section>
+              <button id="tweet" class="btn btn-primary" type="submit">
+                Tweet
+              </button>
+            </div>
+          </div>
+          <hr />
+          <!-- </form> -->
+
+          <!-- Small modal for emoji -->
+          <div
+            class="modal fade bd-example-modal-sm"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="mySmallModalLabel"
+            aria-hidden="true"
+            id="emojimodal"
+          >
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <input
+                    type="text"
+                    id="searchEmoji"
+                    style="width: 270px"
+                    placeholder="Search emojis"
+                  />
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-header">
+                  <div class="btn-group mr-2 emojimenu" id="emojiCategories">
+                    <img
+                      src="https://abs-0.twimg.com/emoji/v2/svg/1f600.svg"
+                      alt=""
+                      data-category="Smileys"
+                    />
+                    <img
+                      src="https://abs-0.twimg.com/emoji/v2/svg/1f43b.svg"
+                      alt=""
+                      data-category="Animals"
+                    />
+                    <img
+                      src="https://abs-0.twimg.com/emoji/v2/svg/1f354.svg"
+                      alt=""
+                      data-category="Food"
+                    />
+                    <img
+                      src="https://abs-0.twimg.com/emoji/v2/svg/26bd.svg"
+                      alt=""
+                      data-category="Activities"
+                    />
+                    <img
+                      src="https://abs-0.twimg.com/emoji/v2/svg/1f698.svg"
+                      alt=""
+                      data-category="Travel"
+                    />
+                    <img
+                      src="https://abs-0.twimg.com/emoji/v2/svg/1f4a1.svg"
+                      alt=""
+                      data-category="Objects"
+                    />
+                    <img
+                      src="https://abs-0.twimg.com/emoji/v2/svg/1f523.svg"
+                      alt=""
+                      data-category="Symbols"
+                    />
+                    <img
+                      src="https://abs-0.twimg.com/emoji/v2/svg/1f6a9.svg"
+                      alt=""
+                      data-category="Flags"
+                    />
+                  </div>
+                </div>
+                <div class="modal-body" id="emojimodalbody"></div>
+                <div class="modal-footer"></div>
+              </div>
+            </div>
+          </div>
+          <!-- END MODAL for emoji -->
+
+          <!-- START Modal for gifs -->
+          <div
+            class="modal fade"
+            id="modalgifs"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="container" id="formsearchgif">
+                    <div class="row">
+                      <div class="col-1">
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="col-11">
+                        <input
+                          type="text"
+                          id="searchGif"
+                          style="width: 220px"
+                          placeholder="Search for GIFs"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-7"></div>
+                  <div class="col-5">
+                    <div class="custom-control custom-switch">
+                      <input
+                        type="checkbox"
+                        class="custom-control-input"
+                        id="togglegifs"
+                      />
+                      <label class="custom-control-label" for="togglegifs"
+                        >Auto-play GIFs</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-body" id="browsegifs"></div>
+              </div>
+            </div>
+          </div>
+          <!-- end modal for gifs -->
+
+          <main id="feed"></main>
+        </div>
+        <div class="col">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default"
+                ><i class="mdi mdi-magnify"></i
+              ></span>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Default"
+              aria-describedby="inputGroup-sizing-default"
+              placeholder="Search Twitter"
+            />
+          </div>
+
+          <div class="card text-center">
+            <div class="card-header">
+              <h5 class="card-title">Trends for you</h5>
+            </div>
+            <div class="card-footer text-muted">Show more</div>
+          </div>
+          <br />
+          <div class="card text-center">
+            <div class="card-header">
+              <h5 class="card-title">Who to follow</h5>
+            </div>
+            <div class="card-footer text-muted">Show more</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".modal");
+        var instances = M.Modal.init(elems);
+      });
+    </script>
+    <script src="js/index.js" type="module"></script>
+  </body>
+</html>
